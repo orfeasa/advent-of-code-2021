@@ -2,10 +2,18 @@
 
 for i in $(seq -f "%02g" 1 25)
 do
-    FILE="./day_$i/main.go"
-    if test -f "$FILE"; then
+    GOFILE="./day_$i/go/main.go"
+    PYFILE="./day_$i/python/main.py"
+    if [test -f "$GOFILE";] || [test -f "$PYFILE";] then
         echo "#### Day $i ####"
-        go run $FILE
+        if [test -f "$GOFILE";] then
+            echo "Go: "
+            go run $FILE
+        fi
+        if [test -f "$PYFILE";] then
+            echo "Python: "
+            python3 $FILE
+        fi
         printf "\n"
     fi
 done

@@ -8,14 +8,15 @@
 
 [Advent of Code](http://adventofcode.com/) is an annual Advent calendar of programming puzzles.
 
-This year I am doing it in Go.
+This year I am doing it in Go and Python.
 
 ## Running the code
 
 To run the code of a specific day from the root directory run the following, replacing `XX` with the day number, `01` - `25`:
 
 ```sh
-go run day_XX/main.go
+go run day_XX/go/main.go
+python3 day_XX/python/main.py
 ```
 
 Make sure you [have Go installed](https://golang.org/doc/install).
@@ -63,4 +64,5 @@ Make sure you have given permission to execute (`chmod +x run_all.sh`).
 ```sh
 gofmt -s -w .
 git ls-files | grep .go | xargs golint
+black . && isort -rc && flake8
 ```
