@@ -2,7 +2,7 @@
 
 # 🎄 Advent of Code 2021 🎄
 
-![AoC2021 logo](https://raw.githubusercontent.com/orfeasa/advent-of-code-2021/main/header.png)
+![AoC2021 logo](https://raw.githubusercontent.com/orfeasa/advent-of-code-2021/master/header.png)
 
 ## Summary
 
