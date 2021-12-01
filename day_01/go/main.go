@@ -30,7 +30,7 @@ func countSlidingWindowIncrease(numbers []int, size int) int {
 	count := 0
 	for i := 0; i < len(numbers)-size; i++ {
 		if sum(numbers[i+1:i+size+1]) > sum(numbers[i:i+size]) {
-			count += 1
+			count++
 		}
 	}
 	return count
