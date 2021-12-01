@@ -3,14 +3,12 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"strconv"
-	"strings"
 )
 
 func main() {
-	inputPath := "./day_xx/input.txt"
+	inputPath := "./day_01/input.txt"
 	fmt.Println("--- Part One ---")
 	fmt.Println(part1(inputPath))
 
@@ -19,25 +17,23 @@ func main() {
 }
 
 func part1(inputPath string) int {
-	return 0
+	nums := readNumbers(inputPath)
+	return countSlidingWindowIncrease(nums, 1)
 }
 
 func part2(inputPath string) int {
-	return 0
+	nums := readNumbers(inputPath)
+	return countSlidingWindowIncrease(nums, 3)
 }
 
-func readStrings(filename string) []string {
-	file, err := os.Open(filename)
-	check(err)
-	defer file.Close()
-
-	scanner := bufio.NewScanner(file)
-
-	var text []string
-	for scanner.Scan() {
-		text = append(text, strings.TrimRight(scanner.Text(), "\n"))
+func countSlidingWindowIncrease(numbers []int, size int) int {
+	count := 0
+	for i := 0; i < len(numbers)-size; i++ {
+		if sum(numbers[i+1:i+size+1]) > sum(numbers[i:i+size]) {
+			count += 1
+		}
 	}
-	return text
+	return count
 }
 
 func readNumbers(filename string) []int {
@@ -54,12 +50,6 @@ func readNumbers(filename string) []int {
 	return numbers
 }
 
-func readRaw(filename string) string {
-	content, err := ioutil.ReadFile(filename)
-	check(err)
-	return strings.TrimRight(string(content), "\n")
-}
-
 func check(err error) {
 	if err != nil {
 		panic(err)
@@ -72,22 +62,10 @@ func toInt(s string) int {
 	return result
 }
 
-func max(numbers []int) int {
-	currMax := numbers[0]
-	for _, val := range numbers {
-		if val > currMax {
-			currMax = val
-		}
+func sum(numbers []int) int {
+	sum := 0
+	for _, num := range numbers {
+		sum += num
 	}
-	return currMax
-}
-
-func min(numbers []int) int {
-	currMin := numbers[0]
-	for _, val := range numbers {
-		if val < currMin {
-			currMin = val
-		}
-	}
-	return currMin
+	return sum
 }
