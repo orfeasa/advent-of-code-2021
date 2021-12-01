@@ -64,5 +64,5 @@ Make sure you have given permission to execute (`chmod +x run_all.sh`).
 ```sh
 gofmt -s -w .
 git ls-files | grep .go | xargs golint
-black . && isort -rc && flake8
+black . && isort -rc . && flake8
 ```

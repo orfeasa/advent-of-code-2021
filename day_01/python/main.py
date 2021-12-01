@@ -1,19 +1,19 @@
 def part_one(filename: str) -> int:
     with open(filename) as f:
         nums = list(map(int, f.readlines()))
-    count = 0
-    for i in range(len(nums) - 1):
-        if nums[i + 1] > nums[i]:
-            count += 1
-    return count
+    return count_sliding_window_inceases(nums, 1)
 
 
 def part_two(filename: str) -> int:
     with open(filename) as f:
         nums = list(map(int, f.readlines()))
+    return count_sliding_window_inceases(nums, 3)
+
+
+def count_sliding_window_inceases(nums: list[int], size: int) -> int:
     count = 0
-    for i in range(len(nums) - 3):
-        if sum(nums[i + 1 : i + 1 + 3]) > sum(nums[i : i + 3]):
+    for i in range(len(nums) - size):
+        if sum(nums[i + 1 : i + 1 + size]) > sum(nums[i : i + size]):
             count += 1
     return count
 
