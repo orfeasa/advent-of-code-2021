@@ -17,19 +17,17 @@ func main() {
 }
 
 func part1(inputPath string) int {
-	nums := readNumbers(inputPath)
-	return countSlidingWindowIncrease(nums, 1)
+	return countSlidingWindowIncrease(readNumbers(inputPath), 1)
 }
 
 func part2(inputPath string) int {
-	nums := readNumbers(inputPath)
-	return countSlidingWindowIncrease(nums, 3)
+	return countSlidingWindowIncrease(readNumbers(inputPath), 3)
 }
 
 func countSlidingWindowIncrease(numbers []int, size int) int {
 	count := 0
 	for i := 0; i < len(numbers)-size; i++ {
-		if sum(numbers[i+1:i+size+1]) > sum(numbers[i:i+size]) {
+		if numbers[i+size] > numbers[i] {
 			count++
 		}
 	}
@@ -60,12 +58,4 @@ func toInt(s string) int {
 	result, err := strconv.Atoi(s)
 	check(err)
 	return result
-}
-
-func sum(numbers []int) int {
-	sum := 0
-	for _, num := range numbers {
-		sum += num
-	}
-	return sum
 }

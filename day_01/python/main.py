@@ -13,7 +13,7 @@ def part_two(filename: str) -> int:
 def count_sliding_window_inceases(nums: list[int], size: int) -> int:
     count = 0
     for i in range(len(nums) - size):
-        if sum(nums[i + 1 : i + 1 + size]) > sum(nums[i : i + size]):
+        if nums[i + size] > nums[i]:
             count += 1
     return count
 
