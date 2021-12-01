@@ -12,11 +12,11 @@ This year I am doing it in Go and Python.
 
 ## Running the code
 
-To run the code of a specific day from the root directory run the following, replacing `XX` with the day number, `01` - `25`:
+To run the code of a specific day from the root directory run the following, replacing `xx` with the day number, `01` - `25`:
 
 ```sh
-go run day_XX/go/main.go
-python3 day_XX/python/main.py
+go run day_xx/go/main.go
+python3 day_xx/python/main.py
 ```
 
 Make sure you [have Go installed](https://golang.org/doc/install).
@@ -36,7 +36,7 @@ Make sure you have given permission to execute (`chmod +x run_all.sh`).
 | [01](https://adventofcode.com/2021/day/1) | Sonar Sweep | ⭐⭐     |     |
 
 <!--
-|                                     |             | [02](https://adventofcode.com/2021/day/2) |     | ⭐⭐ |
+        | [02](https://adventofcode.com/2021/day/2) |     | ⭐⭐ |
 | [03](https://adventofcode.com/2021/day/3)  |             | ⭐⭐                                        |
 | [04](https://adventofcode.com/2021/day/4)  |             | ⭐⭐                                        |
 | [05](https://adventofcode.com/2021/day/5)  |             | ⭐⭐                                        |
