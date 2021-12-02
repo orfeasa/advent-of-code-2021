@@ -4,13 +4,13 @@ def part_one(filename: str) -> int:
 
     hor, ver = 0, 0
     for step in course:
-        direction, amount = step[0], int(step[1])
+        direction, value = step[0], int(step[1])
         if direction == "forward":
-            hor += amount
+            hor += value
         elif direction == "down":
-            ver += amount
+            ver += value
         elif direction == "up":
-            ver -= amount
+            ver -= value
     return hor * ver
 
 
@@ -20,14 +20,14 @@ def part_two(filename: str) -> int:
 
     hor, ver, aim = 0, 0, 0
     for step in course:
-        direction, amount = step[0], int(step[1])
+        direction, value = step[0], int(step[1])
         if direction == "forward":
-            hor += amount
-            ver += aim * amount
+            hor += value
+            ver += aim * value
         elif direction == "down":
-            aim += amount
+            aim += value
         elif direction == "up":
-            aim -= amount
+            aim -= value
     return hor * ver
 
 

@@ -22,16 +22,16 @@ func part1(inputPath string) int {
 	hor := 0
 	ver := 0
 	for _, step := range course {
-		dirAmount := strings.Split(step, " ")
-		direction := dirAmount[0]
-		amount := toInt(dirAmount[1])
+		dirValue := strings.Split(step, " ")
+		direction := dirValue[0]
+		value := toInt(dirValue[1])
 		switch direction {
 		case "forward":
-			hor += amount
+			hor += value
 		case "down":
-			ver += amount
+			ver += value
 		case "up":
-			ver -= amount
+			ver -= value
 		}
 	}
 	return hor * ver
@@ -43,17 +43,17 @@ func part2(inputPath string) int {
 	ver := 0
 	aim := 0
 	for _, step := range course {
-		dirAmount := strings.Split(step, " ")
-		direction := dirAmount[0]
-		amount := toInt(dirAmount[1])
+		dirValue := strings.Split(step, " ")
+		direction := dirValue[0]
+		value := toInt(dirValue[1])
 		switch direction {
 		case "forward":
-			hor += amount
-			ver += aim * amount
+			hor += value
+			ver += aim * value
 		case "down":
-			aim += amount
+			aim += value
 		case "up":
-			aim -= amount
+			aim -= value
 		}
 	}
 	return hor * ver
