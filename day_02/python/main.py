@@ -1,33 +1,26 @@
 def part_one(filename: str) -> int:
     with open(filename) as f:
-        course = f.readlines()
+        course = map(lambda line: line.strip().split(), f.readlines())
 
-    hor = 0
-    ver = 0
+    hor, ver = 0, 0
     for step in course:
-        dir_amount = step.strip().split()
-        direction, amount = dir_amount[0], int(dir_amount[1])
+        direction, amount = step[0], int(step[1])
         if direction == "forward":
             hor += amount
         elif direction == "down":
             ver += amount
         elif direction == "up":
             ver -= amount
-        else:
-            raise ValueError(f"{direction=}")
     return hor * ver
 
 
 def part_two(filename: str) -> int:
     with open(filename) as f:
-        course = f.readlines()
+        course = map(lambda line: line.strip().split(), f.readlines())
 
-    hor = 0
-    ver = 0
-    aim = 0
+    hor, ver, aim = 0, 0, 0
     for step in course:
-        dir_amount = step.strip().split()
-        direction, amount = dir_amount[0], int(dir_amount[1])
+        direction, amount = step[0], int(step[1])
         if direction == "forward":
             hor += amount
             ver += aim * amount
@@ -35,8 +28,6 @@ def part_two(filename: str) -> int:
             aim += amount
         elif direction == "up":
             aim -= amount
-        else:
-            raise ValueError(f"{direction=}")
     return hor * ver
 
 
