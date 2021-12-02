@@ -3,7 +3,6 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"strconv"
 	"strings"
@@ -19,11 +18,45 @@ func main() {
 }
 
 func part1(inputPath string) int {
-	return 0
+	course := readStrings(inputPath)
+	hor := 0
+	ver := 0
+	for _, step := range course {
+		dirAmount := strings.Split(step, " ")
+		direction := dirAmount[0]
+		amount := toInt(dirAmount[1])
+		switch direction {
+		case "forward":
+			hor += amount
+		case "down":
+			ver += amount
+		case "up":
+			ver -= amount
+		}
+	}
+	return hor * ver
 }
 
 func part2(inputPath string) int {
-	return 0
+	course := readStrings(inputPath)
+	hor := 0
+	ver := 0
+	aim := 0
+	for _, step := range course {
+		dirAmount := strings.Split(step, " ")
+		direction := dirAmount[0]
+		amount := toInt(dirAmount[1])
+		switch direction {
+		case "forward":
+			hor += amount
+			ver += aim * amount
+		case "down":
+			aim += amount
+		case "up":
+			aim -= amount
+		}
+	}
+	return hor * ver
 }
 
 func readStrings(filename string) []string {
@@ -38,26 +71,6 @@ func readStrings(filename string) []string {
 		text = append(text, strings.TrimRight(scanner.Text(), "\n"))
 	}
 	return text
-}
-
-func readNumbers(filename string) []int {
-	file, err := os.Open(filename)
-	check(err)
-	defer file.Close()
-
-	Scanner := bufio.NewScanner(file)
-
-	var numbers []int
-	for Scanner.Scan() {
-		numbers = append(numbers, toInt(Scanner.Text()))
-	}
-	return numbers
-}
-
-func readRaw(filename string) string {
-	content, err := ioutil.ReadFile(filename)
-	check(err)
-	return strings.TrimRight(string(content), "\n")
 }
 
 func check(err error) {
