@@ -1,17 +1,12 @@
-from functools import reduce
-
-
 def part_one(filename: str) -> int:
     with open(filename) as f:
         nums = list(map(lambda line: [int(i) for i in line.strip()], f.readlines()))
 
     counters = [sum(col) for col in zip(*nums)]
-    gamma = [int(c > len(nums) / 2) for c in counters]
-    epsilon = [int(c < len(nums) / 2) for c in counters]
+    gamma = [str(int(c > len(nums) / 2)) for c in counters]
+    epsilon = [str(int(c < len(nums) / 2)) for c in counters]
 
-    gamma_rate = int("".join(str(x) for x in gamma), 2)
-    epsilon_rate = int("".join(str(x) for x in epsilon), 2)
-    return gamma_rate * epsilon_rate
+    return int("".join(gamma), 2) * int("".join(epsilon), 2)
 
 
 def part_two(filename: str) -> int:
