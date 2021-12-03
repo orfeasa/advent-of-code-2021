@@ -3,10 +3,10 @@ def part_one(filename: str) -> int:
         nums = list(map(lambda line: [int(i) for i in line.strip()], f.readlines()))
 
     counters = [sum(col) for col in zip(*nums)]
-    gamma = [str(int(c > len(nums) / 2)) for c in counters]
-    epsilon = [str(int(c < len(nums) / 2)) for c in counters]
+    gamma = int("".join([str(int(c > len(nums) / 2)) for c in counters]), 2)
+    epsilon = int("".join([str(int(c < len(nums) / 2)) for c in counters]), 2)
 
-    return int("".join(gamma), 2) * int("".join(epsilon), 2)
+    return gamma * epsilon
 
 
 def part_two(filename: str) -> int:
