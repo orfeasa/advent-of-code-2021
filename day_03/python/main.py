@@ -11,13 +11,6 @@ def part_one(filename: str) -> int:
 
 def part_two(filename: str) -> int:
     with open(filename) as f:
-        nums = list(map(lambda line: [int(i) for i in line.strip()], f.readlines()))
-
-    counters = [sum(col) for col in zip(*nums)]
-    gamma = "".join([str(int(c > len(nums) / 2)) for c in counters])
-    epsilon = "".join([str(int(c < len(nums) / 2)) for c in counters])
-
-    with open(filename) as f:
         nums = list(map(lambda line: line.strip(), f.readlines()))
 
     prefix = ""
