@@ -31,11 +31,13 @@ Make sure you have given permission to execute (`chmod +x run_all.sh`).
 
 ## Overview
 
-| Day                                       | Name              | Python | Go  |
-| ----------------------------------------- | ----------------- | ------ | --- |
-| [01](https://adventofcode.com/2021/day/1) | Sonar Sweep       | ⭐⭐     | ⭐⭐  |
-| [02](https://adventofcode.com/2021/day/2) | Dive!             | ⭐⭐     | ⭐⭐  |
-| [03](https://adventofcode.com/2021/day/3) | Binary Diagnostic | ⭐      |     |
+| Day                                       | Name                 | Python | Go  |
+| ----------------------------------------- | -------------------- | ------ | --- |
+| [01](https://adventofcode.com/2021/day/1) | Sonar Sweep          | ⭐⭐     | ⭐⭐  |
+| [02](https://adventofcode.com/2021/day/2) | Dive!                | ⭐⭐     | ⭐⭐  |
+| [03](https://adventofcode.com/2021/day/3) | Binary Diagnostic    | ⭐⭐     |     |
+| [04](https://adventofcode.com/2021/day/4) | Giant Squid          |        |     |
+| [05](https://adventofcode.com/2021/day/5) | Hydrothermal Venture |        |     |
 
 ## Linting
 

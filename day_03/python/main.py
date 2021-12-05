@@ -20,39 +20,33 @@ def part_two(filename: str) -> int:
     with open(filename) as f:
         nums = list(map(lambda line: line.strip(), f.readlines()))
 
-    for suffix in range(1, len(nums[0])):
-        prefix = gamma[:-suffix] + "1"
-        matches = [x for x in nums if x.startswith(prefix)]
-        if len(matches):
-            oxygen = int(matches[0], 2)
-            if len(matches) > 1:
-                raise ValueError
-            break
-        prefix = gamma[:-suffix] + "0"
-        matches = [x for x in nums if x.startswith(prefix)]
-        if len(matches) > 0:
-            oxygen = int(matches[0], 2)
-            if len(matches) > 1:
-                raise ValueError
+    prefix = ""
+    nums_left = nums
+    for pos in range(len(nums[0])):
+        counters = [sum(map(int, col)) for col in zip(*nums_left)]
+        if counters[pos] >= len(nums_left) / 2:
+            prefix += "1"
+        else:
+            prefix += "0"
+        nums_left = [x for x in nums_left if x.startswith(prefix)]
+        if len(nums_left) == 1:
+            oxygen = nums_left[0]
             break
 
-    for suffix in range(1, len(nums[0])):
-        prefix = epsilon[:-suffix] + "1"
-        matches = [x for x in nums if x.startswith(prefix)]
-        if len(matches):
-            co2 = int(matches[0], 2)
-            if len(matches) > 1:
-                raise ValueError
-            break
-        prefix = epsilon[:-suffix] + "0"
-        matches = [x for x in nums if x.startswith(prefix)]
-        if len(matches) > 0:
-            co2 = int(matches[0], 2)
-            if len(matches) > 1:
-                raise ValueError
+    prefix = ""
+    nums_left = nums
+    for pos in range(len(nums[0])):
+        counters = [sum(map(int, col)) for col in zip(*nums_left)]
+        if counters[pos] < len(nums_left) / 2:
+            prefix += "1"
+        else:
+            prefix += "0"
+        nums_left = [x for x in nums_left if x.startswith(prefix)]
+        if len(nums_left) == 1:
+            co2 = nums_left[0]
             break
 
-    return oxygen * co2
+    return int(oxygen, 2) * int(co2, 2)
 
 
 if __name__ == "__main__":
