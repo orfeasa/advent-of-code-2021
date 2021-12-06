@@ -83,19 +83,22 @@ def part_one(filename: str) -> int:
 def part_two(filename: str) -> int:
     sequence, boards = read_input(filename)
     for num in sequence:
+        next_boards = []
         for board in boards:
             board.draw_number(num)
-            if board.has_bingo():
-                if len(boards) != 1:
-                    boards.remove(board)
-                else:
+            if not board.has_bingo():
+                next_boards.append(board)
+            else:
+                if len(boards) == 1:
                     return board.calculate_score()
+
+        boards = next_boards
 
     return 0
 
 
 if __name__ == "__main__":
-    input_path = "./day_04/test_input.txt"
+    input_path = "./day_04/input.txt"
     print("---Part One---")
     print(part_one(input_path))
 
