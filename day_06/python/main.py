@@ -1,11 +1,13 @@
 from collections import Counter, defaultdict
 
+
 def part_one(filename: str) -> int:
     return lanternfish_population(filename, 80)
 
 
 def part_two(filename: str) -> int:
     return lanternfish_population(filename, 256)
+
 
 def lanternfish_population(filename: str, days: int) -> int:
     with open(filename) as f:
@@ -20,11 +22,10 @@ def lanternfish_population(filename: str, days: int) -> int:
                 new_ages[6] += ages[0]
                 new_ages[8] += ages[0]
             else:
-                new_ages[age-1] += ages[age]
+                new_ages[age - 1] += ages[age]
         ages = new_ages
 
     return sum(ages.values())
-
 
 
 if __name__ == "__main__":

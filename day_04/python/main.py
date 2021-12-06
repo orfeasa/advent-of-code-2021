@@ -57,9 +57,9 @@ def read_input(filename: str) -> tuple[list[int], list[BingoCard]]:
         file = f.read().split("\n\n")
     sequence = list(map(int, file[0].split(",")))
 
-    input = list(map(lambda square: square.strip().split("\n"), file[1:]))
+    squares = list(map(lambda square: square.strip().split("\n"), file[1:]))
     boards = []
-    for square in input:
+    for square in squares:
         board = []
         for line in square:
             row = list(map(int, line.strip().split()))
