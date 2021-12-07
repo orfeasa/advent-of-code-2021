@@ -1,5 +1,3 @@
-[![Go Report Card](https://goreportcard.com/badge/github.com/orfeasa/advent-of-code-2021)](https://goreportcard.com/report/github.com/orfeasa/advent-of-code-2021)
-
 # 🎄 Advent of Code 2021 🎄
 
 ![AoC2021 logo](https://raw.githubusercontent.com/orfeasa/advent-of-code-2021/master/header.png)
@@ -7,19 +5,15 @@
 ## Summary
 
 [Advent of Code](http://adventofcode.com/) is an annual Advent calendar of programming puzzles.
-
-This year I am doing it in Go and Python.
+This year I am doing it in Python.
 
 ## Running the code
 
 To run the code of a specific day from the root directory run the following, replacing `xx` with the day number, `01` - `25`:
 
 ```sh
-go run day_xx/go/main.go
-python3 day_xx/python/main.py
+python3 day_xx/main.py
 ```
-
-Make sure you [have Go installed](https://golang.org/doc/install).
 
 To run the code of all days run the script:
 
