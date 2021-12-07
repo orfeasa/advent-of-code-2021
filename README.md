@@ -38,6 +38,5 @@ Make sure you have given permission to execute (`chmod +x run_all.sh`).
 ## Linting
 
 ```sh
-gofmt -s -w . && git ls-files | grep .go | xargs golint
-black . && isort . && flake8
+black . && isort . && flake8 --max-line-length=100
 ```
