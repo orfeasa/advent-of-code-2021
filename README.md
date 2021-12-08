@@ -26,14 +26,15 @@ Make sure you have given permission to execute (`chmod +x run_all.sh`).
 ## Overview
 
 | Day                                       | Name                    | Stars |
-| ----------------------------------------- | ----------------------- | ------ |
-| [01](https://adventofcode.com/2021/day/1) | Sonar Sweep             | ⭐⭐   |
-| [02](https://adventofcode.com/2021/day/2) | Dive!                   | ⭐⭐   |
-| [03](https://adventofcode.com/2021/day/3) | Binary Diagnostic       | ⭐⭐   |
-| [04](https://adventofcode.com/2021/day/4) | Giant Squid             | ⭐⭐   |
-| [05](https://adventofcode.com/2021/day/5) | Hydrothermal Venture    | ⭐⭐   |
-| [06](https://adventofcode.com/2021/day/6) | Lanternfish             | ⭐⭐   |
-| [07](https://adventofcode.com/2021/day/7) | The Treachery of Whales | ⭐⭐   |
+| ----------------------------------------- | ----------------------- | ----- |
+| [01](https://adventofcode.com/2021/day/1) | Sonar Sweep             | ⭐⭐    |
+| [02](https://adventofcode.com/2021/day/2) | Dive!                   | ⭐⭐    |
+| [03](https://adventofcode.com/2021/day/3) | Binary Diagnostic       | ⭐⭐    |
+| [04](https://adventofcode.com/2021/day/4) | Giant Squid             | ⭐⭐    |
+| [05](https://adventofcode.com/2021/day/5) | Hydrothermal Venture    | ⭐⭐    |
+| [06](https://adventofcode.com/2021/day/6) | Lanternfish             | ⭐⭐    |
+| [07](https://adventofcode.com/2021/day/7) | The Treachery of Whales | ⭐⭐    |
+| [08](https://adventofcode.com/2021/day/8) | Seven Segment Search    | ⭐⭐    |
 
 ## Linting
 
