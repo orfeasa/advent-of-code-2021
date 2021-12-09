@@ -20,7 +20,7 @@ def part_two(filename: str) -> int:
         nums = list(map(lambda n: [int(x) for x in list(n.strip())], f.readlines()))
 
     basins = [
-        bfs(x, y, nums)
+        count_and_delete_basins(x, y, nums)
         for y, line in enumerate(nums)
         for x, val in enumerate(line)
         if val != 9
@@ -29,7 +29,7 @@ def part_two(filename: str) -> int:
     return reduce(lambda x, y: x * y, (sorted(basins, reverse=True)[:3]))
 
 
-def bfs(x, y: int, nums: list[list[int]]) -> int:
+def count_and_delete_basins(x, y: int, nums: list[list[int]]) -> int:
     if (
         not nums
         or not 0 <= x < len(nums[0])
@@ -40,10 +40,10 @@ def bfs(x, y: int, nums: list[list[int]]) -> int:
 
     nums[y][x] = 9
     count = 1
-    count += bfs(x + 1, y, nums)
-    count += bfs(x - 1, y, nums)
-    count += bfs(x, y + 1, nums)
-    count += bfs(x, y - 1, nums)
+    count += count_and_delete_basins(x + 1, y, nums)
+    count += count_and_delete_basins(x - 1, y, nums)
+    count += count_and_delete_basins(x, y + 1, nums)
+    count += count_and_delete_basins(x, y - 1, nums)
     return count
 
 
