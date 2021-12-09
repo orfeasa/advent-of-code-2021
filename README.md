@@ -35,6 +35,7 @@ Make sure you have given permission to execute (`chmod +x run_all.sh`).
 | [06](https://adventofcode.com/2021/day/6) | Lanternfish             | ⭐⭐    |
 | [07](https://adventofcode.com/2021/day/7) | The Treachery of Whales | ⭐⭐    |
 | [08](https://adventofcode.com/2021/day/8) | Seven Segment Search    | ⭐⭐    |
+| [09](https://adventofcode.com/2021/day/9) | Smoke Basin             | ⭐⭐    |
 
 ## Linting
 
