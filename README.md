@@ -37,6 +37,14 @@ Make sure you have given permission to execute (`chmod +x run_all.sh`).
 | [08](https://adventofcode.com/2021/day/8) | Seven Segment Search    | ⭐⭐    |
 | [09](https://adventofcode.com/2021/day/9) | Smoke Basin             | ⭐⭐    |
 
+## New Day
+
+To generate the directory for the current day, save your browser cookie in a file called `cookie.txt` and run the new day script:
+
+```sh
+./new_day.sh
+```
+
 ## Linting
 
 ```sh
