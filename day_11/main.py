@@ -6,17 +6,27 @@ def part_one(filename: str) -> int:
     print("Before any steps:")
     print_nums(nums)
     for step in range(101 + 1):
-        increment_queue = [
-            (x, y) for y, line in enumerate(nums) for x, _ in enumerate(line)
+        for y, line in enumerate(nums):
+            for x, _ in enumerate(line):
+                nums[y][x] += 1
+
+        increment_queue = []
+        to_flash = [
+            (x, y)
+            for y, line in enumerate(nums)
+            for x, val in enumerate(line)
+            if val > 9
         ]
 
         flashed = set()
-        while increment_queue:
-            x, y = increment_queue.pop(0)
-            nums[y][x] += 1
-            if nums[y][x] > 9 and (x, y) not in flashed:
-                flashed.add((x, y))
-                increment_queue.extend(get_adjacents(x, y, nums))
+        while to_flash:
+            x, y = to_flash.pop(0)
+            flashed.add((x, y))
+            increment_queue = get_adjacents(x, y, nums)
+            for x, y in increment_queue:
+                nums[y][x] += 1
+                if nums[y][x] > 9 and (x, y) not in flashed:
+                    to_flash.append((x, y))
 
         for y, line in enumerate(nums):
             for x, _ in enumerate(line):
@@ -62,7 +72,7 @@ def print_nums(nums: list[list[int]]):
 
 
 if __name__ == "__main__":
-    input_path = "./day_11/test_input2.txt"
+    input_path = "./day_11/test_input.txt"
     print("---Part One---")
     print(part_one(input_path))
 

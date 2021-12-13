@@ -38,6 +38,20 @@ Make sure you have given permission to execute (`chmod +x run_all.sh`).
 | [09](https://adventofcode.com/2021/day/9)  | Smoke Basin             | ⭐⭐    |
 | [10](https://adventofcode.com/2021/day/10) | Syntax Scoring          | ⭐⭐    |
 | [11](https://adventofcode.com/2021/day/11) | Dumbo Octopus           |       |
+| [12](https://adventofcode.com/2021/day/12) | Passage Pathing         |       |
+| [13](https://adventofcode.com/2021/day/13) | Transparent Origami     |       |
+| [14](https://adventofcode.com/2021/day/14) | TBA                     |       |
+| [15](https://adventofcode.com/2021/day/15) | TBA                     |       |
+| [16](https://adventofcode.com/2021/day/16) | TBA                     |       |
+| [17](https://adventofcode.com/2021/day/17) | TBA                     |       |
+| [18](https://adventofcode.com/2021/day/18) | TBA                     |       |
+| [19](https://adventofcode.com/2021/day/19) | TBA                     |       |
+| [20](https://adventofcode.com/2021/day/20) | TBA                     |       |
+| [21](https://adventofcode.com/2021/day/21) | TBA                     |       |
+| [22](https://adventofcode.com/2021/day/22) | TBA                     |       |
+| [23](https://adventofcode.com/2021/day/23) | TBA                     |       |
+| [24](https://adventofcode.com/2021/day/24) | TBA                     |       |
+| [25](https://adventofcode.com/2021/day/25) | TBA                     |       |
 
 ## New Day
 
