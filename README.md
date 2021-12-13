@@ -61,6 +61,21 @@ To generate the directory for the current day, save your browser cookie in a fil
 ./new_day.sh
 ```
 
+### How to get your cookie
+
+A session cookie is a small piece of data used to authenticate yourself to the
+Advent of Code web servers. It is not human-readable and might look something
+like this `53616c7465645f5fbd2d445187c5dc5463efb7020021c273c3d604b5946f9e87e2dc30b649f9b2235e8cd57632e415cb`.
+
+To learn more about authentication cookies check [this Wikipedia article](https://en.wikipedia.org/wiki/HTTP_cookie)
+
+To get your cookie, go to the [Advent of Code website](https://adventofcode.com/), and while logged in.
+
+- For Firefox: right and select "Inspect Element" and in the "Storage" tab select "Cookies" → "https://adventofcode.com"
+- For Chrome: right and select "Inspect" and in the "Application" tab select "Cookies" → "https://adventofcode.com"
+
+Then find the row with "session" as name, copy the value and paste it in your newly created `cookie.txt` file
+
 ## Linting
 
 ```sh
