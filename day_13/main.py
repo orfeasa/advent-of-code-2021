@@ -80,7 +80,7 @@ def print_paper(paper: dict[tuple[int, int], bool], x_max, y_max: int):
             if paper[(x, y)]:
                 line_str += "#"
             else:
-                line_str += "."
+                line_str += ".z"
         print(line_str)
     print("")
 
