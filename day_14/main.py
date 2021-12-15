@@ -1,5 +1,6 @@
 from collections import Counter, defaultdict
 
+
 def part_one(filename: str) -> int:
     template, rules = parse_input(filename)
 
@@ -16,10 +17,11 @@ def part_one(filename: str) -> int:
     counters = Counter(template)
     return max(counters.values()) - min(counters.values())
 
-class Element():
-    def __init__(self, value:str, next=None) -> None:
-        self.value=value
-        self.next=next
+
+class Element:
+    def __init__(self, value: str, next=None) -> None:
+        self.value = value
+        self.next = next
 
 
 def part_two(filename: str) -> int:
@@ -51,15 +53,17 @@ def part_two(filename: str) -> int:
 
     return max(counters.values()) - min(counters.values())
 
+
 def print_sequence(start: Element) -> None:
-    current =start
+    current = start
     sequence = ""
     while current:
         sequence += current.value
         current = current.next
     print(sequence)
 
-def parse_input(filename:str) -> tuple[str, dict[str,str]]:
+
+def parse_input(filename: str) -> tuple[str, dict[str, str]]:
     with open(filename) as f:
         template, rules = f.read().split("\n\n")
     rules = list(
@@ -67,6 +71,7 @@ def parse_input(filename:str) -> tuple[str, dict[str,str]]:
     )
     rules = {rule[0]: rule[1] for rule in rules}
     return template, rules
+
 
 if __name__ == "__main__":
     input_path = "./day_14/test_input.txt"
