@@ -14,11 +14,8 @@ class Graph:
         self.weights = {}
 
     def add_edge(self, from_node, to_node, weight):
-        # Note: assumes edges are bi-directional
         self.edges[from_node].append(to_node)
-        self.edges[to_node].append(from_node)
         self.weights[(from_node, to_node)] = weight
-        self.weights[(to_node, from_node)] = weight
 
 
 def part_one(filename: str) -> int:
@@ -28,7 +25,7 @@ def part_one(filename: str) -> int:
     graph = Graph()
 
     edges = [
-        (f"{y},{x}", f"{y+ dy},{x+dx}", nums[x][y])
+        (f"{x},{y}", f"{x+dx},{y+dy}", nums[y + dy][x + dx])
         for y, line in enumerate(nums)
         for x, _ in enumerate(line)
         for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]
@@ -41,10 +38,8 @@ def part_one(filename: str) -> int:
     path = dijsktra(graph, "0,0", f"{len(nums[0])-1},{len(nums)-1}")
     total_risk = 0
     for i in range(len(path) - 1):
-        print(
-            f"Adding weight({path[i]}),({path[i + 1]}): {graph.weights[(path[i], path[i + 1])]}"
-        )
         total_risk += graph.weights[(path[i], path[i + 1])]
+
     return total_risk
 
 
