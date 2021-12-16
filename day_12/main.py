@@ -1,15 +1,15 @@
 from collections import defaultdict
-from pprint import pprint
+from typing import Callable
 
 
 def part_one(filename: str) -> int:
     graph = parse_input(filename)
-    return len(find_all_paths_once(graph, "start", "end"))
+    return len(find_all_paths(graph, "start", "end", once))
 
 
 def part_two(filename: str) -> int:
     graph = parse_input(filename)
-    return len(find_all_paths_twice(graph, "start", "end"))
+    return len(find_all_paths(graph, "start", "end", twice))
 
 
 def parse_input(filename: str) -> dict[str, list[str]]:
@@ -23,7 +23,13 @@ def parse_input(filename: str) -> dict[str, list[str]]:
     return graph
 
 
-def find_all_paths_twice(graph, start, end, path=[]):
+def find_all_paths(
+    graph: dict[str, list[str]],
+    start,
+    end: str,
+    small_caves_strategy: Callable,
+    path=[],
+):
     path = path + [start]
     if start == end:
         return [path]
@@ -31,32 +37,21 @@ def find_all_paths_twice(graph, start, end, path=[]):
         return []
     paths = []
     for node in graph[start]:
-        lowers = [x for x in path if x.islower()]
-        visited_small_cave_twice = len(lowers) == len(set(lowers))
-        if (
-            node not in path
-            or node.isupper()
-            or (visited_small_cave_twice and node != "start")
-        ):
-            newpaths = find_all_paths_twice(graph, node, end, path)
+        if node not in path or small_caves_strategy(path, node):
+            newpaths = find_all_paths(graph, node, end, small_caves_strategy, path)
             for newpath in newpaths:
                 paths.append(newpath)
     return paths
 
 
-def find_all_paths_once(graph, start, end, path=[]):
-    path = path + [start]
-    if start == end:
-        return [path]
-    if start not in graph:
-        return []
-    paths = []
-    for node in graph[start]:
-        if node not in path or node.isupper():
-            newpaths = find_all_paths_once(graph, node, end, path)
-            for newpath in newpaths:
-                paths.append(newpath)
-    return paths
+def once(path: list[str], node: str) -> bool:
+    return node.isupper()
+
+
+def twice(path: list[str], node: str) -> bool:
+    lowers = [x for x in path if x.islower()]
+    visited_small_cave_twice = len(lowers) == len(set(lowers))
+    return node.isupper() or (visited_small_cave_twice and node != "start")
 
 
 if __name__ == "__main__":
