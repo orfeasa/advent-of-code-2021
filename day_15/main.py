@@ -18,10 +18,7 @@ class Graph:
         self.weights[(from_node, to_node)] = weight
 
 
-def part_one(filename: str) -> int:
-    with open(filename) as f:
-        nums = list(map(lambda n: [int(x) for x in list(n.strip())], f.readlines()))
-
+def create_graph_from_nums(nums):
     graph = Graph()
 
     edges = [
@@ -34,6 +31,14 @@ def part_one(filename: str) -> int:
 
     for edge in edges:
         graph.add_edge(*edge)
+    return graph
+
+
+def part_one(filename: str) -> int:
+    with open(filename) as f:
+        nums = list(map(lambda n: [int(x) for x in list(n.strip())], f.readlines()))
+
+    graph = create_graph_from_nums(nums)
 
     path = dijsktra(graph, "0,0", f"{len(nums[0])-1},{len(nums)-1}")
     total_risk = 0
@@ -44,7 +49,49 @@ def part_one(filename: str) -> int:
 
 
 def part_two(filename: str) -> int:
-    return 0
+    with open(filename) as f:
+        nums = list(map(lambda n: [int(x) for x in list(n.strip())], f.readlines()))
+
+    # add horizontal
+    for line in nums:
+        new_line = []
+        for inc in range(4):
+            new_line += [(val + inc) % 9 + 1 for val in line]
+        line.extend(new_line)
+
+    # add vertical
+    new_rows = []
+    for inc in range(4):
+        new_nums = []
+        for y, line in enumerate(nums):
+            new_line = []
+            for x, val in enumerate(line):
+                new_line.append((val + inc) % 9 + 1)
+            new_nums.append(new_line)
+        new_rows.extend(new_nums)
+    nums.extend(new_rows)
+
+    # for y, line in enumerate(nums):
+    #     print("".join(map(str, line)))
+
+    graph = create_graph_from_nums(nums)
+
+    path = dijsktra(graph, "0,0", f"{len(nums[0])-1},{len(nums)-1}")
+    total_risk = 0
+    for i in range(len(path) - 1):
+        total_risk += graph.weights[(path[i], path[i + 1])]
+    return total_risk
+
+
+def print_path(nums, path):
+    for y in range(len(nums)):
+        line = ""
+        for x in range(len(nums[0])):
+            if f"{x},{y}" in path:
+                line += "#"
+            else:
+                line += "."
+        print(line)
 
 
 def dijsktra(graph, initial, end):
