@@ -37,7 +37,7 @@ Make sure you have given permission to execute (`chmod +x run_all.sh`).
 | [08](https://adventofcode.com/2021/day/8)  | Seven Segment Search    | ⭐⭐    |
 | [09](https://adventofcode.com/2021/day/9)  | Smoke Basin             | ⭐⭐    |
 | [10](https://adventofcode.com/2021/day/10) | Syntax Scoring          | ⭐⭐    |
-| [11](https://adventofcode.com/2021/day/11) | Dumbo Octopus           |       |
+| [11](https://adventofcode.com/2021/day/11) | Dumbo Octopus           | ⭐⭐    |
 | [12](https://adventofcode.com/2021/day/12) | Passage Pathing         |       |
 | [13](https://adventofcode.com/2021/day/13) | Transparent Origami     | ⭐⭐    |
 | [14](https://adventofcode.com/2021/day/14) | Extended Polymerization | ⭐     |
