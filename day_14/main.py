@@ -18,49 +18,46 @@ def part_one(filename: str) -> int:
     return max(counters.values()) - min(counters.values())
 
 
-class Element:
-    def __init__(self, value: str, next=None) -> None:
-        self.value = value
-        self.next = next
-
-
 def part_two(filename: str) -> int:
     template, rules = parse_input(filename)
-
-    start = Element(template[0])
-    prev = start
-    for ch in template[1:]:
-        current = Element(ch)
-        prev.next = current
-        prev = current
+    count_pairs = defaultdict(int)
+    for i in range(len(template) - 1):
+        count_pairs[template[i : i + 2]] += 1
 
     for _ in range(40):
-        print(f"Step {_+1}")
-        current = start
-        while current.next:
-            pair = current.value + current.next.value
-            if pair in rules:
-                new = Element(rules[pair])
-                new.next = current.next
-                current.next = new
-                current = new.next
+        new_count_pairs = defaultdict(int)
+        for pair, count in count_pairs.items():
+            new_count_pairs[pair[0] + rules[pair]] += count
+            new_count_pairs[rules[pair] + pair[1]] += count
+        count_pairs = new_count_pairs
 
     counters = defaultdict(int)
-    current = start
-    while current:
-        counters[current.value] += 1
-        current = current.next
-
+    for pair in count_pairs:
+        for ch in pair:
+            counters[ch] += count_pairs[pair]
+    # if even divide by 2, if odd (chars on edges) add 1 and divide by 2
+    counters = {k: (v + 1) // 2 for k, v in counters.items()}
     return max(counters.values()) - min(counters.values())
 
 
-def print_sequence(start: Element) -> None:
-    current = start
-    sequence = ""
-    while current:
-        sequence += current.value
-        current = current.next
-    print(sequence)
+def calculate_counters(
+    template: str, rules: dict[str, str], steps: int
+) -> dict[str, int]:
+    counters = Counter()
+    if steps == 0:
+        return Counter(template)
+    if len(template) > 2:
+        for i in range(len(template) - 1):
+            pair = template[i : i + 2]
+            counters += calculate_counters(pair, rules, steps)
+    elif len(template) == 2:
+        if template in rules:
+            new_template = template[0] + rules[template] + template[1]
+            counters += Counter(new_template) + calculate_counters(
+                new_template, rules, steps - 1
+            )
+
+    return counters
 
 
 def parse_input(filename: str) -> tuple[str, dict[str, str]]:
@@ -74,7 +71,7 @@ def parse_input(filename: str) -> tuple[str, dict[str, str]]:
 
 
 if __name__ == "__main__":
-    input_path = "./day_14/test_input.txt"
+    input_path = "./day_14/input.txt"
     print("---Part One---")
     print(part_one(input_path))
 

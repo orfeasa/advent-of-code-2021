@@ -40,7 +40,7 @@ Make sure you have given permission to execute (`chmod +x run_all.sh`).
 | [11](https://adventofcode.com/2021/day/11) | Dumbo Octopus           | ⭐⭐    |
 | [12](https://adventofcode.com/2021/day/12) | Passage Pathing         |       |
 | [13](https://adventofcode.com/2021/day/13) | Transparent Origami     | ⭐⭐    |
-| [14](https://adventofcode.com/2021/day/14) | Extended Polymerization | ⭐     |
+| [14](https://adventofcode.com/2021/day/14) | Extended Polymerization | ⭐⭐    |
 | [15](https://adventofcode.com/2021/day/15) | Chiton                  | ⭐⭐    |
 | [16](https://adventofcode.com/2021/day/16) | Packet Decoder          |       |
 | [17](https://adventofcode.com/2021/day/17) | TBA                     |       |
