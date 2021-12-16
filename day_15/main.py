@@ -33,9 +33,9 @@ def part_two(filename: str) -> int:
     new_rows = []
     for inc in range(4):
         new_nums = []
-        for y, line in enumerate(nums):
+        for line in nums:
             new_line = []
-            for x, val in enumerate(line):
+            for val in line:
                 new_line.append((val + inc) % 9 + 1)
             new_nums.append(new_line)
         new_rows.extend(new_nums)
@@ -53,28 +53,30 @@ def part_two(filename: str) -> int:
     return cost
 
 
-def dijkstra(edges, f, t):
-    g = defaultdict(list)
-    for l, r, c in edges:
-        g[l].append((c, r))
+def dijkstra(edges, initial, end):
+    graph = defaultdict(list)
+    for current, next, cost in edges:
+        graph[current].append((cost, next))
 
-    q, seen, mins = [(0, f, ())], set(), {f: 0}
-    while q:
-        (cost, v1, path) = heapq.heappop(q)
+    queue = [(0, initial, ())]
+    seen = set()
+    mins = {initial: 0}
+    while queue:
+        (cost1, v1, path) = heapq.heappop(queue)
         if v1 not in seen:
             seen.add(v1)
             path = (v1, path)
-            if v1 == t:
-                return (cost, path)
+            if v1 == end:
+                return (cost1, path)
 
-            for c, v2 in g.get(v1, ()):
+            for cost2, v2 in graph.get(v1, ()):
                 if v2 in seen:
                     continue
                 prev = mins.get(v2, None)
-                next = cost + c
+                next = cost1 + cost2
                 if prev is None or next < prev:
                     mins[v2] = next
-                    heapq.heappush(q, (next, v2, path))
+                    heapq.heappush(queue, (next, v2, path))
 
     return float("inf"), None
 
