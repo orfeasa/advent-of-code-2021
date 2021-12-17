@@ -9,11 +9,13 @@ This year I am doing it in Python.
 
 ## Running the code
 
-To run the code of a specific day from the root directory run the following, replacing `xx` with the day number, `01` - `25`:
+To run the code of a specific day from the root directory run the following, replacing `xx` with the day number, `01` - `25`. Make sure you use Python 3.9+.
 
 ```sh
 python3 day_xx/main.py
 ```
+
+You may want to replace `python3` with `python3.9` if the command above doesn't work.
 
 To run the code of all days run the script:
 
@@ -55,7 +57,7 @@ Make sure you have given permission to execute (`chmod +x run_all.sh`).
 
 ## New Day
 
-To generate the directory for the current day, save your browser cookie in a file called `cookie.txt` and run the new day script:
+To generate the directory for the current day, save your browser cookie in a file called `cookie.txt` at the root level and run the new day script:
 
 ```sh
 ./new_day.sh
