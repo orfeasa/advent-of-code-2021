@@ -46,8 +46,8 @@ Make sure you have given permission to execute (`chmod +x run_all.sh`).
 | [15](https://adventofcode.com/2021/day/15) | Chiton                  | ⭐⭐    |
 | [16](https://adventofcode.com/2021/day/16) | Packet Decoder          |       |
 | [17](https://adventofcode.com/2021/day/17) | Trick Shot              | ⭐ ⭐   |
-| [18](https://adventofcode.com/2021/day/18) | TBA                     |       |
-| [19](https://adventofcode.com/2021/day/19) | TBA                     |       |
+| [18](https://adventofcode.com/2021/day/18) | Snailfish               |       |
+| [19](https://adventofcode.com/2021/day/19) | Beacon Scanner          |       |
 | [20](https://adventofcode.com/2021/day/20) | TBA                     |       |
 | [21](https://adventofcode.com/2021/day/21) | TBA                     |       |
 | [22](https://adventofcode.com/2021/day/22) | TBA                     |       |
