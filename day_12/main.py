@@ -1,5 +1,5 @@
 from collections import defaultdict
-from typing import Callable
+from collections.abc import Callable
 
 
 def part_one(filename: str) -> int:
