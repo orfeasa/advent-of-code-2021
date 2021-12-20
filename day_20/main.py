@@ -1,17 +1,19 @@
 def part_one(filename: str) -> int:
-    with open(filename) as f:
-        algo_str, image_str = f.read().split("\n\n")
-    image_str = image_str.strip().split("\n")
-    algorithm = [1 if ch == "#" else 0 for ch in algo_str]
-    image = []
-    for line in image_str:
-        image.append([1 if ch == "#" else 0 for ch in line])
+    image, algorithm = parse_input(filename)
     image, rest = enhance(image, algorithm)
     image, _ = enhance(image, algorithm, rest)
     return sum([sum(line) for line in image])
 
 
 def part_two(filename: str) -> int:
+    image, algorithm = parse_input(filename)
+    rest = 0
+    for _ in range(50):
+        image, rest = enhance(image, algorithm, rest)
+    return sum([sum(line) for line in image])
+
+
+def parse_input(filename) -> tuple[list[list[int]], list[int]]:
     with open(filename) as f:
         algo_str, image_str = f.read().split("\n\n")
     image_str = image_str.strip().split("\n")
@@ -19,11 +21,7 @@ def part_two(filename: str) -> int:
     image = []
     for line in image_str:
         image.append([1 if ch == "#" else 0 for ch in line])
-    rest = 0
-    for _ in range(50):
-        image, rest = enhance(image, algorithm, rest)
-
-    return sum([sum(line) for line in image])
+    return image, algorithm
 
 
 def enhance(
@@ -46,7 +44,6 @@ def enhance(
                 2,
             )
             new_line.append(algorithm[index])
-        TRIM_OFFEST = 0
         new_image.append(new_line)
     if algorithm[0]:
         rest = int(not rest)
@@ -54,16 +51,16 @@ def enhance(
 
 
 def print_image(image):
-    for y, line in enumerate(image):
+    for line in image:
         new_line = ""
-        for x, val in enumerate(line):
+        for val in line:
             new_line += "#" if val else "."
         print(new_line)
     print()
 
 
 if __name__ == "__main__":
-    input_path = "./day_20/test_input.txt"
+    input_path = "./day_20/input.txt"
     print("---Part One---")
     print(part_one(input_path))
 
