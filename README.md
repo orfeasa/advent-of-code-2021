@@ -49,7 +49,7 @@ Make sure you have given permission to execute (`chmod +x run_all.sh`).
 | [18](https://adventofcode.com/2021/day/18) | Snailfish               |       |
 | [19](https://adventofcode.com/2021/day/19) | Beacon Scanner          |       |
 | [20](https://adventofcode.com/2021/day/20) | Trench Map              | ⭐⭐    |
-| [21](https://adventofcode.com/2021/day/21) | TBA                     |       |
+| [21](https://adventofcode.com/2021/day/21) | Dirac Dice              | ⭐     |
 | [22](https://adventofcode.com/2021/day/22) | TBA                     |       |
 | [23](https://adventofcode.com/2021/day/23) | TBA                     |       |
 | [24](https://adventofcode.com/2021/day/24) | TBA                     |       |
