@@ -51,9 +51,9 @@ Make sure you have given permission to execute (`chmod +x run_all.sh`).
 | [20](https://adventofcode.com/2021/day/20) | Trench Map              | ⭐⭐    |
 | [21](https://adventofcode.com/2021/day/21) | Dirac Dice              | ⭐     |
 | [22](https://adventofcode.com/2021/day/22) | Reactor Reboot          | ⭐     |
-| [23](https://adventofcode.com/2021/day/23) | TBA                     |       |
-| [24](https://adventofcode.com/2021/day/24) | TBA                     |       |
-| [25](https://adventofcode.com/2021/day/25) | TBA                     |       |
+| [23](https://adventofcode.com/2021/day/23) | Amphipod                |       |
+| [24](https://adventofcode.com/2021/day/24) | Arithmetic Logic Unit   |       |
+| [25](https://adventofcode.com/2021/day/25) | Sea Cucumber            | ⭐     |
 
 ## New Day
 
